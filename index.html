@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InnoStrat Advisory — AI × 產業轉型顧問</title>
+  <meta name="description" content="InnoStrat Advisory 是 AI 驅動的創新顧問，協助台灣大型企業高階主管把 AI POC 從實驗室推進到真正產生商業價值。" />
+  <meta property="og:title" content="InnoStrat Advisory — AI × 產業轉型顧問" />
+  <meta property="og:description" content="幫助台灣大型企業，尤其是製造與零售業，把 AI POC 從實驗室推到真正產生商業價值。" />
+  <meta property="og:image" content="assets/innostrat-advisory-logo.jpg" />
+  <style>
+    :root {
+      --ink: #0b3447;
+      --ink-2: #123f53;
+      --ink-soft: #355766;
+      --muted: #697b84;
+      --paper: #fbfaf7;
+      --surface: #ffffff;
+      --surface-warm: #f3efe7;
+      --line: rgba(11, 52, 71, 0.13);
+      --accent: #9b6938;
+      --accent-dark: #6f451f;
+      --deep: #092b3d;
+      --blue: #164a60;
+      --radius: 22px;
+      --shadow: 0 24px 70px rgba(11, 52, 71, 0.10);
+      --max: 1180px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 84% 0%, rgba(155, 105, 56, 0.14), transparent 34rem),
+        linear-gradient(180deg, #fbfaf7 0%, #f6f2eb 48%, #fbfaf7 100%);
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(251, 250, 247, 0.82);
+      border-bottom: 1px solid rgba(11, 52, 71, 0.08);
+    }
+    .nav-inner { height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 760; letter-spacing: -0.03em; }
+    .brand-logo { width: 42px; height: 42px; border-radius: 12px; object-fit: cover; box-shadow: 0 10px 24px rgba(11,52,71,.12); }
+    .nav-links { display: flex; align-items: center; gap: 24px; color: var(--ink-soft); font-size: 14px; }
+    .nav-links a { padding: 10px 0; }
+    .nav-links a:hover { color: var(--ink); }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 46px; padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      font-weight: 700; font-size: 14px;
+      box-shadow: 0 10px 22px rgba(11, 52, 71, 0.05);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(11, 52, 71, 0.10); }
+    .button.primary { background: var(--ink); color: white; border-color: var(--ink); }
+    .button.primary:hover { background: #164a60; }
+
+    .hero { padding: 88px 0 70px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(330px, .92fr); gap: 58px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 7px 12px;
+      border: 1px solid rgba(155, 105, 56, .25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .64);
+      color: var(--accent-dark);
+      font-size: 13px; font-weight: 800;
+    }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(155, 105, 56, .12); }
+    h1 { margin: 22px 0 20px; font-size: clamp(42px, 6.5vw, 78px); line-height: .98; letter-spacing: -0.06em; max-width: 900px; }
+    .hero-sub { max-width: 760px; color: var(--ink-soft); font-size: clamp(18px, 2vw, 22px); letter-spacing: -0.018em; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .note { margin-top: 24px; color: var(--muted); font-size: 14px; max-width: 720px; }
+
+    .logo-card { background: rgba(255,255,255,.76); border: 1px solid rgba(11,52,71,.1); border-radius: 34px; box-shadow: var(--shadow); overflow: hidden; }
+    .logo-wrap { padding: 34px 34px 20px; display: grid; place-items: center; background: linear-gradient(180deg, #fff, #f4f1ea); }
+    .logo-wrap img { width: min(100%, 330px); border-radius: 24px; display: block; }
+    .signal-bottom { padding: 24px 28px 28px; display: grid; gap: 16px; }
+    .mini-row { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .mini-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .mini-label { color: var(--muted); font-size: 13px; }
+    .mini-value { font-weight: 780; text-align: right; }
+
+    section { padding: 72px 0; }
+    .section-head { display: grid; grid-template-columns: .56fr 1fr; gap: 34px; align-items: end; margin-bottom: 32px; }
+    .kicker { color: var(--accent-dark); font-size: 13px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    h2 { margin: 8px 0 0; font-size: clamp(30px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.05em; }
+    .section-copy { color: var(--ink-soft); font-size: 18px; max-width: 720px; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: rgba(255,255,255,.74); border: 1px solid rgba(11, 52, 71, .1); border-radius: var(--radius); padding: 26px; min-height: 265px; box-shadow: 0 12px 34px rgba(11, 52, 71, .045); }
+    .card-num { color: var(--accent); font-weight: 850; font-size: 13px; }
+    .card h3 { margin: 48px 0 12px; font-size: 23px; letter-spacing: -0.03em; line-height: 1.18; }
+    .card p { margin: 0; color: var(--ink-soft); }
+
+    .offer-wrap { background: var(--deep); color: white; border-radius: 34px; padding: 34px; box-shadow: 0 26px 80px rgba(11,52,71,.20); }
+    .offer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 28px; }
+    .offer { border: 1px solid rgba(255,255,255,.13); border-radius: 22px; padding: 24px; background: rgba(255,255,255,.055); }
+    .offer h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -0.025em; }
+    .offer p { margin: 0; color: rgba(255,255,255,.76); }
+    .offer-meta { margin-top: 18px; color: rgba(255,255,255,.58); font-size: 13px; }
+
+    .method { display: grid; grid-template-columns: .82fr 1.18fr; gap: 22px; align-items: stretch; }
+    .method-panel { border-radius: 30px; background: var(--surface-warm); border: 1px solid rgba(11,52,71,.08); padding: 32px; }
+    .method-panel h3 { margin: 0 0 12px; font-size: 32px; line-height: 1.12; letter-spacing: -0.04em; }
+    .steps { display: grid; gap: 12px; }
+    .step { display: grid; grid-template-columns: 52px 1fr; gap: 16px; padding: 20px; border-radius: 22px; background: rgba(255,255,255,.75); border: 1px solid rgba(11,52,71,.08); }
+    .step-index { color: var(--accent); font-weight: 850; }
+    .step strong { display:block; margin-bottom: 4px; }
+    .step span { color: var(--muted); }
+
+    .audience-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; overflow: hidden; border-radius: 28px; border: 1px solid var(--line); background: var(--line); }
+    .audience { background: rgba(255,255,255,.74); padding: 24px; min-height: 172px; }
+    .audience strong { display: block; margin-bottom: 12px; font-size: 19px; letter-spacing: -0.02em; }
+    .audience span { color: var(--ink-soft); font-size: 14px; }
+
+    .content-engine { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .channel { border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,.72); padding: 24px; }
+    .channel strong { display:block; font-size: 20px; margin-bottom: 10px; }
+    .channel span { color: var(--ink-soft); }
+
+    .cta { padding: 54px; border-radius: 36px; background: linear-gradient(135deg, rgba(9,43,61,.97), rgba(111,69,31,.94)); color: white; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; }
+    .cta h2 { margin: 0 0 16px; }
+    .cta p { color: rgba(255,255,255,.77); max-width: 760px; margin: 0; font-size: 18px; }
+    .cta .button { background: white; color: var(--ink); border-color: white; }
+    footer { padding: 34px 0 54px; color: var(--muted); font-size: 14px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 24px; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 60px; }
+      .hero-grid, .section-head, .method, .cta { grid-template-columns: 1fr; }
+      .cards, .offer-grid, .audience-strip, .content-engine { grid-template-columns: 1fr; }
+      .cta { padding: 34px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .hero-actions { flex-direction: column; }
+      .button { width: 100%; }
+      section { padding: 52px 0; }
+      .card h3 { margin-top: 34px; }
+      .offer-wrap { padding: 22px; border-radius: 26px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="InnoStrat Advisory home">
+        <img class="brand-logo" src="assets/innostrat-advisory-logo.jpg" alt="InnoStrat Advisory logo" />
+        <span>InnoStrat Advisory</span>
+      </a>
+      <div class="nav-links">
+        <a href="#focus">定位</a>
+        <a href="#offers">服務</a>
+        <a href="#method">方法</a>
+        <a href="#content">觀點</a>
+        <a href="#contact">聯絡</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">AI 驅動的創新顧問｜AI × 產業轉型</div>
+          <h1>把 AI POC 從實驗室，推進到真正的商業價值。</h1>
+          <p class="hero-sub">InnoStrat Advisory 專注「AI 落地顧問」，協助台灣大型企業，特別是製造與零售業的高階主管，將 AI 應用從概念驗證轉化為可衡量的成長、效率與組織能力。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">討論 AI 落地議題</a>
+            <a class="button" href="#offers">查看顧問服務</a>
+          </div>
+          <p class="note">English positioning: InnoStrat Advisory helps senior executives in Taiwan’s manufacturing and retail sectors move AI POCs beyond experimentation and into practical business value.</p>
+        </div>
+        <aside class="logo-card" aria-label="InnoStrat Advisory brand snapshot">
+          <div class="logo-wrap">
+            <img src="assets/innostrat-advisory-logo.jpg" alt="InnoStrat Advisory logo with upward arrow icon" />
+          </div>
+          <div class="signal-bottom">
+            <div class="mini-row"><span class="mini-label">核心定位</span><span class="mini-value">AI 落地顧問</span></div>
+            <div class="mini-row"><span class="mini-label">主要客戶</span><span class="mini-value">台灣大型企業高階主管</span></div>
+            <div class="mini-row"><span class="mini-label">重點產業</span><span class="mini-value">製造、零售</span></div>
+            <div class="mini-row"><span class="mini-label">收費模式</span><span class="mini-value">專案顧問費</span></div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="focus">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Positioning</div><h2>不是再做一個 AI POC，而是讓 AI 進入業務現場。</h2></div>
+          <p class="section-copy">許多企業已有 AI 實驗、工具試用或資料科學專案，但真正的難題在於：如何連結業務價值、流程改造、資料基礎、組織採用與管理決策。</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="card-num">01</div><h3>從技術可能性到業務價值</h3><p>協助高階主管判斷哪些 AI 應用值得投資、如何排序，以及如何用管理語言說清楚價值。</p></article>
+          <article class="card"><div class="card-num">02</div><h3>從 POC 到可規模化落地</h3><p>設計從試點、流程嵌入、資料治理到績效追蹤的推進路徑，避免 POC 停留在展示階段。</p></article>
+          <article class="card"><div class="card-num">03</div><h3>從工具導入到組織能力</h3><p>建立主管共識、應用場景、治理機制與採用節奏，讓 AI 成為企業轉型能力的一部分。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="offers">
+      <div class="container offer-wrap">
+        <div class="section-head" style="margin-bottom:0">
+          <div><div class="kicker" style="color:#d9b58b">Services</div><h2>以專案顧問費為核心的服務設計。</h2></div>
+          <p class="section-copy" style="color:rgba(255,255,255,.76)">服務從策略診斷切入，延伸到 AI 應用工具、落地路線圖與主管工作坊，目標是產出可決策、可推進、可衡量的成果。</p>
+        </div>
+        <div class="offer-grid">
+          <article class="offer"><h3>AI 轉型策略診斷</h3><p>盤點企業 AI 現況、業務痛點、資料與能力基礎，找出最有價值的落地機會。</p><div class="offer-meta">Output: 診斷報告、機會地圖、優先順序</div></article>
+          <article class="offer"><h3>AI POC 商業化推進</h3><p>協助將既有 POC 轉成業務流程中的實際應用，定義價值指標、流程改造與採用機制。</p><div class="offer-meta">Output: 落地路線圖、KPI、推進治理</div></article>
+          <article class="offer"><h3>AI 應用工具設計</h3><p>針對製造、零售等場景，設計主管與業務團隊可使用的 AI 工具概念、流程與需求規格。</p><div class="offer-meta">Output: 應用藍圖、需求規格、原型方向</div></article>
+          <article class="offer"><h3>高階主管 AI 工作坊</h3><p>建立高階團隊對 AI × 產業轉型的共同語言，對齊投資重點、風險治理與行動方案。</p><div class="offer-meta">Output: 管理共識、決策議題、90 天行動</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="method">
+      <div class="container method">
+        <div class="method-panel">
+          <div class="kicker">Method</div>
+          <h3>策略顧問的結構，加上 AI 落地的實務感。</h3>
+          <p class="section-copy" style="font-size:16px">InnoStrat Advisory 的角色不是單純推工具，也不是只做趨勢簡報；而是協助企業主管把 AI 轉成可以管理、投資、執行與追蹤的轉型議題。</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-index">01</div><div><strong>釐清業務議題</strong><span>從成長、效率、客戶體驗或營運韌性出發，而不是從工具出發。</span></div></div>
+          <div class="step"><div class="step-index">02</div><div><strong>辨識高價值場景</strong><span>聚焦具備商業價值、資料可行性與組織採用條件的 AI 應用。</span></div></div>
+          <div class="step"><div class="step-index">03</div><div><strong>設計落地路線</strong><span>定義 POC 商業化、流程嵌入、治理與績效指標。</span></div></div>
+          <div class="step"><div class="step-index">04</div><div><strong>推動主管決策</strong><span>協助高階團隊做出投資、優先順序與組織動員決策。</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Audience</div><h2>聚焦台灣大型企業的高階主管議題。</h2></div>
+          <p class="section-copy">尤其適合已經開始 AI 嘗試，但需要把實驗轉成業務成果的組織。</p>
+        </div>
+        <div class="audience-strip">
+          <div class="audience"><strong>製造業高階主管</strong><span>智慧製造、供應鏈、品質、維修、排程與知識管理場景。</span></div>
+          <div class="audience"><strong>零售與消費產業主管</strong><span>顧客經營、門市營運、商品、行銷、客服與需求預測應用。</span></div>
+          <div class="audience"><strong>策略 / 轉型負責人</strong><span>建立 AI 轉型議程、投資邏輯、路線圖與治理節奏。</span></div>
+          <div class="audience"><strong>數位 / 資料團隊</strong><span>把技術能力與業務場景、採用機制、主管決策連接起來。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="content">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Thought Leadership</div><h2>持續輸出 AI 企業轉型的實戰觀點。</h2></div>
+          <p class="section-copy">透過 Website、Medium、Substack 與 Newsletter 建立受眾，再轉換成顧問 leads、產品化服務與 AI 應用工具機會。</p>
+        </div>
+        <div class="content-engine">
+          <div class="channel"><strong>Website</strong><span>作為品牌定位、服務說明、案例觀點與 lead conversion 的核心入口。</span></div>
+          <div class="channel"><strong>Medium / Substack</strong><span>發布 AI 落地、產業轉型、製造與零售應用的長文觀點。</span></div>
+          <div class="channel"><strong>Newsletter</strong><span>定期累積高階主管受眾，形成信任、回訪與顧問需求轉換。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container cta">
+        <div>
+          <h2>從一個正在卡住的 AI POC 開始。</h2>
+          <p>如果你的企業已經有 AI 試點，但還不確定如何連結業務價值、推進採用或規模化，InnoStrat Advisory 可以協助你把問題轉成可執行的顧問專案。</p>
+        </div>
+        <a class="button" href="mailto:hello@innostratadvisory.com?subject=InnoStrat%20Advisory%20AI%20Implementation%20Discussion">聯絡 InnoStrat</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> InnoStrat Advisory</div>
+      <div>AI × 產業轉型 · AI 落地顧問 · Manufacturing · Retail</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
